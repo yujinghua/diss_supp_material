@@ -18,7 +18,7 @@ Class | CryptoBasis
 Function Name| dllSymmetryEncrypt
 Syntax|dword dllSymmetryEncrypt (char[] ciphername, byte[] aKey, byte[] iVec, byte[] in, long inlen, byte[] out, long& poutlen)
 Description|This function encrypts the string by the specified symmetry encryption algorithm.
-Parameters| - ciphername: the name of the encryption algorithm. (see [supported algorithms](https://github.com/yujinghua/diss_supp_material/blob/main/OpenSSL_Supported_Alg.md)）<br> - aKey: symmetry envryption key <br> - iVec: iv value <br> - in: input plain text <br> - inlen: length of the plain text <br> - out: output cipher text <br> - poutlen: length of the cipher text
+Parameters| - ciphername: the name of the encryption algorithm. (see [supported algorithms](https://github.com/yujinghua/diss_supp_material/blob/main/OpenSSL_Supported_Alg.md)) <br> - aKey: symmetry envryption key <br> - iVec: iv value <br> - in: input plain text <br> - inlen: length of the plain text <br> - out: output cipher text <br> - poutlen: length of the cipher text
 Return Values| Return 1 if no error occurs. |
 
 **Example Codes**
@@ -111,7 +111,7 @@ Class | CryptoBasis
 Function Name| dllSymmetryDecrypt
 Syntax|dword dllSymmetryDecrypt (char[] ciphername, byte[] aKey, byte[] iVec, byte[] in, long inlen, byte[] out, long& poutlen)
 Description|This function decrypts the string by the specified symmetry encryption algorithm.
-Parameters| - ciphername: the name of the decryption algorithm. (supported algorithms see TODO <br> - aKey: symmetry envryption key <br> - iVec: iv value <br> - in: input cipher text <br> - inlen: length of the input cipher text <br> - out: output decrypted text <br> - poutlen: length of the output decrypted text 
+Parameters| - ciphername: the name of the decryption algorithm. (see [supported algorithms](https://github.com/yujinghua/diss_supp_material/blob/main/OpenSSL_Supported_Alg.md)) <br> - aKey: symmetry envryption key <br> - iVec: iv value <br> - in: input cipher text <br> - inlen: length of the input cipher text <br> - out: output decrypted text <br> - poutlen: length of the output decrypted text 
 Return Values| Return 1 if no error occurs. 
 
 **Example Codes**
@@ -211,7 +211,7 @@ Class | CryptoBasis
 Function Name | dllCalDigest
 Syntax|dword dllCalDigest (char digestname[],  byte in[], byte out[], long& poutlen)
 Description|This function calculates the hash value of the provided string
-Parameters| - digestname: the name of the digest algorithm. (supported algorithms see TODO ) <br> - in: source data <br> - out: hash value of the source data <br> - poutlen: length of the hash value
+Parameters| - digestname: the name of the digest algorithm. (see [supported algorithms](https://github.com/yujinghua/diss_supp_material/blob/main/OpenSSL_Supported_Alg.md)) <br> - in: source data <br> - out: hash value of the source data <br> - poutlen: length of the hash value
 Return Values| Return 1 if no error occurs. 
 
 **Example Codes**
@@ -259,7 +259,7 @@ Class | CryptoBasis
 Function Name | dllCalHMAC 
 Syntax|dword dllCalHMAC(char hashAlgName[], byte msg[], long mlen, byte val[], long* vlen, byte aKey[], long keyLen)
 Description|This function calculates the HMAC of the input data.
-Parameters| - hashAlgName: input hash algorithm name <br> - msg: input message <br> - mlen: length of the input message) <br> - val: output calculated value <br> - vlen: output length of the calculared value <br> - aKey: input key of the calculation <br> - keyLen: key length 
+Parameters| - hashAlgName: input hash algorithm name (see [supported algorithms](https://github.com/yujinghua/diss_supp_material/blob/main/OpenSSL_Supported_Alg.md)) <br> - msg: input message <br> - mlen: length of the input message) <br> - val: output calculated value <br> - vlen: output length of the calculared value <br> - aKey: input key of the calculation <br> - keyLen: key length 
 Return Values| Return 1 if no error occurs. 
 
 **Example Codes**
