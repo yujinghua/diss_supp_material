@@ -31,14 +31,17 @@
 * input: key = "akey"
 * output: cipher text = “c1a9d48932d01b10913b29e6e43f3126”; cipher text length = 16;
 * return: 1 (operation succeeds)
+
 **Sub test cases 1: Input key length = 16 bytes**
 * input: key = "0123456789abcdef"
 * output: cipher text = “ 73e56da23fc5187b64566ba6e3def67e”; cipher text length = 16;
 * return: 1 (operation succeeds)
+
 **Sub test cases 1: Input key length > 16 bytes # cut the overflow part**
 * input: key = "0123456789abcdef112233445566778899"
 * output: cipher text = “ 73e56da23fc5187b64566ba6e3def67e”; cipher text length = 16;
 * return: 1 (operation succeeds)
+
 **Sub test cases 1: Input key = null**
 * input: key = ""
 * output: cipher text = “ fc041974581f3bfede58b726b4f88941”; cipher text length = 16;
@@ -54,6 +57,7 @@
 * input: cipher name = "bes-128-ecb”
 * output: null (the function is abort)
 * return: error code = 100 (cipher name is invalid)
+
 **Sub test cases 2: Input a null cipher name**
 * input: cipher name = null
 * output: null (the function is abort)
@@ -74,14 +78,17 @@
 * input: key = “akey”; cipher text = “ c1a9d48932d01b10913b29e6e43f3126”; cipher text length = 16;
 * output: plain text = "Hello World!”; plain text length = 12;
 * return: 1 (operation succeeds)
+
 **Sub test cases 1: Input key length = 16 bytes**
 * input: key = “0123456789abcdef”; cipher text = “ 73e56da23fc5187b64566ba6e3def67e”; cipher text length = 16;
 * output: plain text = "Hello World!”; plain text length = 12;
 * return: 1 (operation succeeds)
+
 **Sub test cases 1: Input key length > 16 bytes # cut the overflow part**
 * input: key = “0123456789abcdef112233445566778899”; cipher text = “ 73e56da23fc5187b64566ba6e3def67e”; cipher text length = 16;
 * output: plain text = "Hello World!”; plain text length = 12;
 * return: 1 (operation succeeds)
+
 **Sub test cases 1: Input key = null**
 * input: key = “”; cipher text = “ fc041974581f3bfede58b726b4f88941”; cipher text length = 16;
 * output: plain text = "Hello World!”; plain text length = 12;
