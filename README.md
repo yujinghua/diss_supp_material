@@ -1,1 +1,1 @@
-# Supplementary Material of Dissertation
+# Supplementary Material of the Dissertation
