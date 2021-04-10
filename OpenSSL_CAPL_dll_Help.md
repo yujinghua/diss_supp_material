@@ -4,13 +4,18 @@ OpenSSL_CAPL.dll is a CAPL dll file supported by the CANoe environment. It acts 
 
 ### dllSymmetryEncrypt
 
-^Class | CryptoBasis |
-^Function Name| dllSymmetryEncrypt|
-^Syntax|dword dllSymmetryEncrypt (char[] ciphername, byte[] aKey, byte[] iVec, byte[] in, long inlen, byte[] out, long& poutlen)|
-^Description|This function encrypts the string by the specified symmetry encryption algorithm.|
-^Parameters| - ciphername: the name of the encryption algorithm. (supported algorithms see {{playground:explorer:supportedalgs.txt | Supported Algorithms }}  \\ aKey: symmetry envryption key \\ iVec: iv value \\ in: input plain text \\ inlen: length of the plain text\\ out: output cipher text \\ poutlen: length of the cipher text|
-^ Return Values| Return 1 if no error occurs. |
-^ Example Codes| <code> 
+**Definition**
+Item|Content
+----|------- 
+Class | CryptoBasis 
+Function Name| dllSymmetryEncrypt
+Syntax|dword dllSymmetryEncrypt (char[] ciphername, byte[] aKey, byte[] iVec, byte[] in, long inlen, byte[] out, long& poutlen)
+Description|This function encrypts the string by the specified symmetry encryption algorithm.
+Parameters| - ciphername: the name of the encryption algorithm. (supported algorithms see todo ）<br> - aKey: symmetry envryption key <br> - iVec: iv value <br> - in: input plain text <br> - inlen: length of the plain text <br> - out: output cipher text <br> - poutlen: length of the cipher text
+Return Values| Return 1 if no error occurs. |
+
+**Example Codes**
+ ```
   char ciphername[32] = "aes-128-cbc";
   byte plaintext[64];
   byte ciphertext[64];
@@ -89,15 +94,19 @@ OpenSSL_CAPL.dll is a CAPL dll file supported by the CANoe environment. It acts 
     //strncat(decryptedtextStr, tmpC, (decryptedlen + 1));
   }
   write("decryptedtextStr = %s", decryptedtextStr);
-   </code> \\ {{ :playground:explorer:symmendeexample.png | Write Windows}} |
- 
+   </code> \\ {{ :playground:explorer:symmendeexample.png | Write Windows}} 
+ ```
 
 ### dllSymmetryDecrypt
+**Definition**
+Item|Content
+----|------- 
+Class | CryptoBasis |
+Function Name| dllSymmetryDecrypt |
+Syntax|dword dllSymmetryDecrypt (char[] ciphername, byte[] aKey, byte[] iVec, byte[] in, long inlen, byte[] out, long& poutlen)|
+Description|This function decrypts the string by the specified symmetry encryption algorithm.|
+Parameters| - ciphername: the name of the decryption algorithm. (supported algorithms see TODO <br> - aKey: symmetry envryption key <br> - iVec: iv value <br> - in: input cipher text <br> - inlen: length of the input cipher text <br> - out: output decrypted text <br> - poutlen: length of the output decrypted text |
+Return Values| Return 1 if no error occurs. |
 
-^Class | CryptoBasis |
-^Function Name| dllSymmetryDecrypt |
-^Syntax|dword dllSymmetryDecrypt (char[] ciphername, byte[] aKey, byte[] iVec, byte[] in, long inlen, byte[] out, long& poutlen)|
-^Description|This function decrypts the string by the specified symmetry encryption algorithm.|
-^Parameters| - ciphername: the name of the decryption algorithm. (supported algorithms see {{playground:explorer:supportedalgs.txt | Supported Algorithms }} \\ aKey: symmetry envryption key \\ iVec: iv value\\ in: input cipher text \\ inlen: length of the input cipher text \\ out: output decrypted text \\ poutlen: length of the output decrypted text |
-^ Return Values| Return 1 if no error occurs. |
-^ Example Codes| see 'dllSymmetryEncrypt->Example Codes' |
+**Example Codes**
+See dllSymmetryEncrypt- > Example Codes
