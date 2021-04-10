@@ -1,6 +1,8 @@
 # OpenSSL_CAPL.dll Help File
 OpenSSL_CAPL.dll is a CAPL dll file supported by the CANoe environment. It acts as the interface for calling OpenSSL algorithms in CANoe.
 
+# List
+[dllSymmetryEncrypt](dllSymmetryEncrypt)
 
 ### dllSymmetryEncrypt
 
