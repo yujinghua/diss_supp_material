@@ -1,11 +1,13 @@
 # OpenSSL_CAPL.dll Help File
 OpenSSL_CAPL.dll is a CAPL dll file supported by the CANoe environment. It acts as the interface for calling OpenSSL algorithms in CANoe.
 
-# List
+# Interface List
 * [dllSymmetryEncrypt](#dllSymmetryEncrypt)
 * [dllSymmetryDecrypt](#dllSymmetryDecrypt)
 * [dllRSAPublicEncrypt](#dllRSAPublicEncrypt)
 * [dllRSAPrivateDecrypt](#dllRSAPrivateDecrypt)
+* [dllCalDigest](#dllCalDigest)
+* [dllCalHMAC](#dllCalHMAC)
 
 ### dllSymmetryEncrypt
 
@@ -200,3 +202,110 @@ Return Values | Return 1 if no error occurs.
 **Example Codes**
 See dllRSAPublicEncrypt -> Example Codes
 Return Values| Return 1 if no error occurs. 
+
+### dllCalDigest
+**Definition**
+Item|Content
+----|------- 
+Class | CryptoBasis 
+Function Name | dllCalDigest
+Syntax|dword dllCalDigest (char digestname[],  byte in[], byte out[], long& poutlen)
+Description|This function calculates the hash value of the provided string
+Parameters| - digestname: the name of the digest algorithm. (supported algorithms see TODO ) <br> - in: source data <br> - out: hash value of the source data <br> - poutlen: length of the hash value
+Return Values| Return 1 if no error occurs. 
+
+** Example Codes**
+```
+  int len, i;
+  char scrStr[64];
+  char mdStr[128];
+  char tmpC[3];
+  byte scrText[64];
+  byte mdText[128];
+  long poutlen;
+ 
+ // clear the byte array before a new round start
+  for(i = 0; i < elCount(scrText); i++){scrText[i] = 0;}
+  for(i = 0; i < elCount(mdStr); i++){mdStr[i] = 0;}
+  for(i = 0; i < elCount(mdText); i++){mdText[i] = 0;}
+ 
+  // get source text from sysvar
+  sysGetVariableString( sysvar::Sender::TxText, scrStr, elcount(scrStr) ); 
+  len = strlen(scrStr);
+  write("scrlen = %d", len);
+  //write("%s", scrStr);
+  for(i = 0; i < len; i++){
+    scrText[i] = scrStr[i];
+    //write("%x", scrText[i]);
+  }
+ 
+  //claculate digest
+  dllCalDigest("md5", scrText, mdText, poutlen);
+ 
+  //print output text
+  for(i = 0; i < poutlen; i++){
+    snprintf(tmpC, elcount(tmpC), "%02x", mdText[i]);
+    strncat(mdStr, tmpC, (poutlen * 2 + 1));
+  }
+  write("%s", mdStr);
+  write("poutlen = %d", poutlen);
+```
+
+### dllCalHMAC
+**Definition**
+Item|Content
+----|------- 
+Class | CryptoBasis 
+Function Name | dllCalHMAC 
+Syntax|dword dllCalHMAC(char hashAlgName[], byte msg[], long mlen, byte val[], long* vlen, byte aKey[], long keyLen)
+Description|This function calculates the HMAC of the input data.
+Parameters| - hashAlgName: input hash algorithm name <br> - msg: input message <br> - mlen: length of the input message) <br> - val: output calculated value <br> - vlen: output length of the calculared value <br> - aKey: input key of the calculation <br> - keyLen: key length 
+Return Values| Return 1 if no error occurs. 
+
+**Example Codes**
+```
+int len, i;
+  char scrStr[64];
+  char hmacStr[128];
+  char tmpC[3];
+  byte scrText[64];
+  byte hmacText[128];
+  long hmacLen;
+  byte akey[64];
+  long keyLen = 8;
+  akey[0] = 'p';
+  akey[1] = 'a';
+  akey[2] = 's';
+  akey[3] = 's';
+  akey[4] = 'w';
+  akey[5] = 'o';
+  akey[6] = 'r';
+  akey[7] = 'd';
+  
+  for(i = 0; i < elCount(scrText); i++){scrText[i] = 0;} // clear the byte array before a new round start
+  for(i = 0; i < elCount(hmacStr); i++){hmacStr[i] = 0;}
+  for(i = 0; i < elCount(hmacText); i++){hmacText[i] = 0;}
+  
+  // get source text
+  sysGetVariableString( sysvar::Sender::TxText, scrStr, elcount(scrStr) ); // get string from sysvar
+  len = strlen(scrStr);
+  write("scrlen = %d", len);
+  //write("%s", scrStr);
+  for(i = 0; i < len; i++){
+    scrText[i] = scrStr[i];
+    //write("%x", scrText[i]);
+  }
+  
+  //claculate digest
+  dllCalHMAC("sha1", scrText, len, hmacText, hmacLen, akey, keyLen);
+  
+  //print output text
+  for(i = 0; i < hmacLen; i++){
+    snprintf(tmpC, elcount(tmpC), "%02x", hmacText[i]);
+    strncat(hmacStr, tmpC, (hmacLen * 2 + 1));
+  }
+  write("%s", hmacStr);
+  write("hmacLen = %d", hmacLen);
+}
+
+// key = "password"; scrSrc = "hello" </code>  \\ {{:playground:explorer:hmac_write_window.png?600|}} |
