@@ -2,8 +2,10 @@
 OpenSSL_CAPL.dll is a CAPL dll file supported by the CANoe environment. It acts as the interface for calling OpenSSL algorithms in CANoe.
 
 # List
-1.[dllSymmetryEncrypt](#dllSymmetryEncrypt)
-2.[dllSymmetryDecrypt](#dllSymmetryDecrypt)
+* [dllSymmetryEncrypt](#dllSymmetryEncrypt)
+* [dllSymmetryDecrypt](#dllSymmetryDecrypt)
+* [dllRSAPublicEncrypt](#dllRSAPublicEncrypt)
+* [dllRSAPrivateDecrypt](#dllRSAPrivateDecrypt)
 
 ### dllSymmetryEncrypt
 
@@ -97,19 +99,104 @@ Return Values| Return 1 if no error occurs. |
     //strncat(decryptedtextStr, tmpC, (decryptedlen + 1));
   }
   write("decryptedtextStr = %s", decryptedtextStr);
-   </code> \\ {{ :playground:explorer:symmendeexample.png | Write Windows}} 
  ```
 
 ### dllSymmetryDecrypt
 **Definition**
 Item|Content
 ----|------- 
-Class | CryptoBasis |
-Function Name| dllSymmetryDecrypt |
-Syntax|dword dllSymmetryDecrypt (char[] ciphername, byte[] aKey, byte[] iVec, byte[] in, long inlen, byte[] out, long& poutlen)|
-Description|This function decrypts the string by the specified symmetry encryption algorithm.|
-Parameters| - ciphername: the name of the decryption algorithm. (supported algorithms see TODO <br> - aKey: symmetry envryption key <br> - iVec: iv value <br> - in: input cipher text <br> - inlen: length of the input cipher text <br> - out: output decrypted text <br> - poutlen: length of the output decrypted text |
-Return Values| Return 1 if no error occurs. |
+Class | CryptoBasis
+Function Name| dllSymmetryDecrypt
+Syntax|dword dllSymmetryDecrypt (char[] ciphername, byte[] aKey, byte[] iVec, byte[] in, long inlen, byte[] out, long& poutlen)
+Description|This function decrypts the string by the specified symmetry encryption algorithm.
+Parameters| - ciphername: the name of the decryption algorithm. (supported algorithms see TODO <br> - aKey: symmetry envryption key <br> - iVec: iv value <br> - in: input cipher text <br> - inlen: length of the input cipher text <br> - out: output decrypted text <br> - poutlen: length of the output decrypted text 
+Return Values| Return 1 if no error occurs. 
 
 **Example Codes**
 See dllSymmetryEncrypt- > Example Codes
+
+### dllRSAPublicEncrypt
+**Definition**
+Item|Content
+----|------- 
+Class | CryptoBasis
+Function Name | dllRSAPublicEncrypt
+Syntax|dword dllRSAPublicEncrypt(byte plaintext[], long plainLen, char pubKeyFile[], byte ciphertext[], long* cipherLen)
+Description|This function encrypts the input plaintext into the ciphertext by the RSA public key.
+Parameters | - plaintext: input plaintext <br> - plainLen: length of the input plaintext <br> - pubKeyFile: path of the public key file(*.pem) <br> - ciphertext: the output cipher text <br> - cipherLen: the length of the output cipher text 
+Return Values | Return 1 if no error occurs. 
+
+**Example Codes**
+```
+byte plaintext[245];
+  byte ciphertext[260];
+  byte decryptedtext[245];
+  char pubKeyFile[256] = "C:\\rsa_pubkey_pw.pem";
+  char priKeyFile[256] = "C:\\rsa_prikey_pw.pem";
+  char priKeyPW[256] = "1234";
+  long plainlen, cipherlen, decryptedlen;
+  
+  char plaintextStr[495]; //plaintext[]length * 2 + 5
+  char ciphertextStr[517];
+  char decryptedtextStr[495];
+  
+  int i;
+  int len;
+  char tmpC[3];
+  
+  for(i = 0; i < elCount(plaintext); i++){plaintext[i] = 0;} // clear the byte array before a new round start
+  for(i = 0; i < elCount(ciphertext); i++){ciphertext[i] = 0;} // clear the byte array before a new round start
+  for(i = 0; i < elCount(decryptedtext); i++){decryptedtext[i] = 0;} // clear the byte array before a new round start
+  for(i = 0; i < elCount(plaintextStr); i++){plaintextStr[i] = 0;}
+  for(i = 0; i < elCount(ciphertextStr); i++){ciphertextStr[i] = 0;}
+  for(i = 0; i < elCount(decryptedtextStr); i++){decryptedtextStr[i] = 0;}
+  
+  //get plain text
+  sysGetVariableString( sysvar::Sender::TxText, plaintextStr, elcount(plaintextStr) ); // get string from sysvar 
+  plainlen = strlen(plaintextStr);
+  write("plainlen = %d", plainlen);
+  write("plaintext = %s", plaintextStr);
+  for(i = 0; i < plainlen; i++){
+    plaintext[i] = plaintextStr[i];
+    //write("%x", plaintext[i]);
+  }
+  
+  // encrypt plaintext
+  dllRSAPublicEncrypt(plaintext, plainlen, pubKeyFile, ciphertext, cipherlen);
+  write("cipherlen = %d", cipherlen);
+  //print cipher text in hex
+  write("cipher text = ");
+ for(i = 0; i < cipherlen; i++){ //
+    //write("%d %x %c", i, ciphertext[i], ciphertext[i]);
+    snprintf(tmpC, elcount(tmpC), "%02x", ciphertext[i]);
+    strncat(ciphertextStr, tmpC, (cipherlen * 2 + 1)); //elcount(ciphertextStr)
+  }
+  write("%s", ciphertextStr);
+  
+ // decrypt ciphertext
+  dllRSAPrivateDecrypt(ciphertext, cipherlen, priKeyFile, priKeyPW, decryptedtext, decryptedlen);
+  write("decryptedlen = %d", decryptedlen);
+  //print decrypted test
+  for(i = 0; i < decryptedlen; i++){
+    decryptedtextStr[i] = decryptedtext[i];
+    //write("%d %x %c", i, decryptedtext[i], decryptedtext[i]);
+    //snprintf(tmpC, elcount(tmpC), "%02x", decryptedtext[i]);
+    //strncat(decryptedtextStr, tmpC, (decryptedlen + 1));
+  }
+  write("decrypted text = %s", decryptedtextStr);
+```
+
+### dllRSAPrivateDecrypt
+**Definition**
+Item|Content
+----|------- 
+Class | CryptoBasis 
+Function Name | dllRSAPrivateDecrypt
+Syntax|dword dllRSAPrivateDecrypt(byte ciphertext[], long cipherLen, char priKeyFile[], char priKeyFilePW[], byte decryptedtext[], long* dectextLen)
+Description|This function decrypts the input ciphertext by the RSA private key.
+Parameters| - ciphertext: input ciphertext <br> - cipherLen: length of the input ciphertext <br> - pubKeyFile: path of the public key file(*.pem) <br> - priKeyFilePW: password of the private key file  <br> - decryptedtext: the output decrypted text <br> - dectextLen: the length of the output decrypted text 
+Return Values | Return 1 if no error occurs. 
+
+**Example Codes**
+See dllRSAPublicEncrypt -> Example Codes
+Return Values| Return 1 if no error occurs. 
