@@ -214,7 +214,7 @@ Description|This function calculates the hash value of the provided string
 Parameters| - digestname: the name of the digest algorithm. (supported algorithms see TODO ) <br> - in: source data <br> - out: hash value of the source data <br> - poutlen: length of the hash value
 Return Values| Return 1 if no error occurs. 
 
-** Example Codes**
+**Example Codes**
 ```
   int len, i;
   char scrStr[64];
@@ -308,4 +308,6 @@ int len, i;
   write("hmacLen = %d", hmacLen);
 }
 
-// key = "password"; scrSrc = "hello" </code>  \\ {{:playground:explorer:hmac_write_window.png?600|}} |
+// key = "password"; scrSrc = "hello" 
+```
+
