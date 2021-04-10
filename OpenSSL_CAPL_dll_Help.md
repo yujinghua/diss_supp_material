@@ -18,7 +18,7 @@ Class | CryptoBasis
 Function Name| dllSymmetryEncrypt
 Syntax|dword dllSymmetryEncrypt (char[] ciphername, byte[] aKey, byte[] iVec, byte[] in, long inlen, byte[] out, long& poutlen)
 Description|This function encrypts the string by the specified symmetry encryption algorithm.
-Parameters| - ciphername: the name of the encryption algorithm. (supported algorithms see todo ）<br> - aKey: symmetry envryption key <br> - iVec: iv value <br> - in: input plain text <br> - inlen: length of the plain text <br> - out: output cipher text <br> - poutlen: length of the cipher text
+Parameters| - ciphername: the name of the encryption algorithm. (see [supported algorithms](https://github.com/yujinghua/diss_supp_material/blob/main/OpenSSL_Supported_Alg.md)）<br> - aKey: symmetry envryption key <br> - iVec: iv value <br> - in: input plain text <br> - inlen: length of the plain text <br> - out: output cipher text <br> - poutlen: length of the cipher text
 Return Values| Return 1 if no error occurs. |
 
 **Example Codes**
