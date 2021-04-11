@@ -1,6 +1,6 @@
 # Unit Test List
 
-## Unit Test Cases for “dllSymmetryEncrypt”
+## TG_dllSymmetryEncrypt
 
 ### 1.1 TC_dllSymmetryEncrypt_invalid_cipher_name
 
@@ -32,57 +32,67 @@
 1.5.4 TC_dllSymmetryEncrypt_aes_192_cbc_in_plaintext <br>
 1.5.5 TC_dllSymmetryEncrypt_aes_192_cbc_inlen_wrong <br>
 
+### 1.6 For “aes-256-ecb”
+1.6.1 TC_dllSymmetryEncrypt_aes_256_ecb_normal <br>
+1.6.2 TC_dllSymmetryEncrypt_aes_256_ecb_aKey <br>
+1.6.3 TC_dllSymmetryEncrypt_aes_256_ecb_iv <br>
+1.6.4 TC_dllSymmetryEncrypt_aes_256_ecb_in_plaintext <br>
+1.6.5 TC_dllSymmetryEncrypt_aes_256_ecb_inlen_wrong <br>
 
-\textbf{1.6} & \textbf{“aes-256-ecb”算法} \\
-1.2.1 & TC\_dllSymmetryEncrypt\_aes\_256\_ecb\_normal \\
-1.2.2 & TC\_dllSymmetryEncrypt\_aes\_256\_ecb\_aKey \\
-1.2.3 & TC\_dllSymmetryEncrypt\_aes\_256\_ecb\_iv \\
-1.2.4 & TC\_dllSymmetryEncrypt\_aes\_256\_ecb\_in\_plaintext \\
-1.2.5 & TC\_dllSymmetryEncrypt\_aes\_256\_ecb\_inlen\_wrong \\
-\textbf{1.7} & \textbf{“aes-256-cbc”算法} \\
-1.3.1 & TC\_dllSymmetryEncrypt\_aes\_256\_cbc\_normal \\
-1.3.2 & TC\_dllSymmetryEncrypt\_aes\_256\_cbc\_aKey \\
-1.3.3 & TC\_dllSymmetryEncrypt\_aes\_256\_cbc\_iv \\
-1.3.4 & TC\_dllSymmetryEncrypt\_aes\_256\_cbc\_in\_plaintext \\
-1.3.5 & TC\_dllSymmetryEncrypt\_aes\_256\_cbc\_inlen\_wrong \\
-\textbf{2} & \textbf{“dllSymmetryDecrypt”接口函数单元测试用例} \\
-\textbf{2.1} & \textbf{TC\_dllSymmetryDecrypt\_invalid\_cipher\_name} \\
-\textbf{2.2} & \textbf{“aes-128-ecb”算法}  \\
-2.2.1 & TC\_dllSymmetryDecrypt\_aes\_128\_ecb\_normal \\
-2.2.2 & TC\_dllSymmetryDecrypt\_aes\_128\_ecb\_aKey \\
-2.2.3 & TC\_dllSymmetryDecrypt\_aes\_128\_ecb\_iv \\
-2.2.4 & TC\_dllSymmetryDecrypt\_aes\_128\_ecb\_in\_ciphertext \\
-2.2.5 & TC\_dllSymmetryDecrypt\_aes\_128\_ecb\_in\_cipherlen\_wrong \\
-\textbf{2.3} & \textbf{“aes-128-cbc”算法}  \\
-2.3.1 & TC\_dllSymmetryDecrypt\_aes\_128\_cbc\_normal \\
-2.3.2 & TC\_dllSymmetryDecrypt\_aes\_128\_cbc\_aKey \\
-2.3.3 & TC\_dllSymmetryDecrypt\_aes\_128\_cbc\_iv \\
-2.3.4 & TC\_dllSymmetryDecrypt\_aes\_128\_cbc\_in\_ciphertext \\
-2.3.5 & TC\_dllSymmetryDecrypt\_aes\_128\_cbc\_in\_cipherlen\_wrong \\
-\textbf{2.4} & \textbf{“aes-192-ecb”算法}  \\
-2.4.1 & TC\_dllSymmetryDecrypt\_aes\_192\_ecb\_normal \\
-2.4.2 & TC\_dllSymmetryDecrypt\_aes\_192\_ecb\_aKey \\
-2.4.3 & TC\_dllSymmetryDecrypt\_aes\_192\_ecb\_iv \\
-2.4.4 & TC\_dllSymmetryDecrypt\_aes\_192\_ecb\_in\_ciphertext \\
-2.4.5 & TC\_dllSymmetryDecrypt\_aes\_192\_ecb\_in\_cipherlen\_wrong \\
-\textbf{2.5} & \textbf{“aes-192-cbc”算法}  \\
-2.5.1 & TC\_dllSymmetryDecrypt\_aes\_192\_cbc\_normal \\
-2.5.2 & TC\_dllSymmetryDecrypt\_aes\_192\_cbc\_aKey \\
-2.5.3 & TC\_dllSymmetryDecrypt\_aes\_192\_cbc\_iv \\
-2.5.4 & TC\_dllSymmetryDecrypt\_aes\_192\_cbc\_in\_ciphertext \\
-2.5.5 & TC\_dllSymmetryDecrypt\_aes\_192\_cbc\_in\_cipherlen\_wrong \\
-\textbf{2.6} & \textbf{“aes-256-ecb”算法}  \\
-2.6.1 & TC\_dllSymmetryDecrypt\_aes\_256\_ecb\_normal \\
-2.6.2 & TC\_dllSymmetryDecrypt\_aes\_256\_ecb\_aKey \\
-2.6.3 & TC\_dllSymmetryDecrypt\_aes\_256\_ecb\_iv \\
-2.6.4 & TC\_dllSymmetryDecrypt\_aes\_256\_ecb\_in\_ciphertext \\
-2.6.5 & TC\_dllSymmetryDecrypt\_aes\_256\_ecb\_in\_cipherlen\_wrong \\
-\textbf{2.7} & \textbf{“aes-256-cbc”算法}  \\
-2.7.1 & TC\_dllSymmetryDecrypt\_aes\_256\_cbc\_normal \\
-2.7.2 & TC\_dllSymmetryDecrypt\_aes\_256\_cbc\_aKey \\
-2.7.3 & TC\_dllSymmetryDecrypt\_aes\_265\_cbc\_iv \\
-2.7.4 & TC\_dllSymmetryDecrypt\_aes\_256\_cbc\_in\_ciphertext \\
-2.7.5 & TC\_dllSymmetryDecrypt\_aes\_256\_cbc\_in\_cipherlen\_wrong \\
+### 1.7 For “aes-256-cbc”算法
+1.7.1 & TC_dllSymmetryEncrypt_aes_256_cbc_normal <br>
+1.7.2 & TC_dllSymmetryEncrypt_aes_256_cbc_aKey <br>
+1.7.3 & TC_dllSymmetryEncrypt_aes_256_cbc_iv <br>
+1.7.4 & TC_dllSymmetryEncrypt_aes_256_cbc_in_plaintext <br>
+1.7.5 & TC_dllSymmetryEncrypt_aes_256\cbc_inlen_wrong <br>
+
+## TG_dllSymmetryDecrypt
+
+###  2.1 TC_dllSymmetryDecrypt_invalid_cipher_name
+
+### 2.2 For “aes-128-ecb”
+2.2.1 TC_dllSymmetryDecrypt_aes_128_ecb_normal <br>
+2.2.2 TC_dllSymmetryDecrypt_aes_128_ecb_aKey <br>
+2.2.3 TC_dllSymmetryDecrypt_aes_128_ecb_iv <br>
+2.2.4 TC_dllSymmetryDecrypt_aes_128_ecb_in_ciphertext <br>
+2.2.5 TC_dllSymmetryDecrypt_aes_128_ecb_in_cipherlen_wrong <br>
+
+### 2.3 For “aes-128-cbc”
+2.3.1 TC_dllSymmetryDecrypt_aes_128_cbc_normal <br>
+2.3.2 TC_dllSymmetryDecrypt_aes_128_cbc_aKey <br>
+2.3.3 TC_dllSymmetryDecrypt_aes_128_cbc_iv <br>
+2.3.4 TC_dllSymmetryDecrypt_aes_128_cbc_in_ciphertext <br>
+2.3.5 TC_dllSymmetryDecrypt_aes_128_cbc_in_cipherlen_wrong <br>
+
+### 2.4 For “aes-192-ecb”
+2.4.1 TC_dllSymmetryDecrypt_aes_192_ecb_normal <br>
+2.4.2 TC_dllSymmetryDecrypt_aes_192_ecb_aKey <br>
+2.4.3 TC_dllSymmetryDecrypt_aes_192_ecb_iv <br> 
+2.4.4 TC_dllSymmetryDecrypt_aes_192_ecb_in_ciphertext <br>
+2.4.5 TC_dllSymmetryDecrypt_aes_192_ecb_in_cipherlen_wrong <br>
+
+### 2.5 For “aes-192-cbc”
+2.5.1 TC_dllSymmetryDecrypt_aes_192_cbc_normal <br>
+2.5.2 TC_dllSymmetryDecrypt_aes_192_cbc_aKey <br>
+2.5.3 TC_dllSymmetryDecrypt_aes_192_cbc_iv <br>
+2.5.4 TC_dllSymmetryDecrypt_aes_192_cbc_in_ciphertext <br>
+2.5.5 TC_dllSymmetryDecrypt_aes_192_cbc_in_cipherlen_wrong <br>
+
+### 2.6 For “aes-256-ecb”
+2.6.1 TC_dllSymmetryDecrypt_aes_256_ecb_normal <br>
+2.6.2 TC_dllSymmetryDecrypt_aes_256_ecb_aKey <br>
+2.6.3 TC_dllSymmetryDecrypt_aes_256_ecb_iv <br>
+2.6.4 TC_dllSymmetryDecrypt_aes_256_ecb_in_ciphertext <br>
+2.6.5 TC_dllSymmetryDecrypt_aes_256_ecb_in_cipherlen_wrong <br>
+
+### 2.7 For “aes-256-cbc”
+2.7.1 TC_dllSymmetryDecrypt_aes_256_cbc_normal <br>
+2.7.2 TC_dllSymmetryDecrypt_aes_256_cbc_aKey <br>
+2.7.3 TC_dllSymmetryDecrypt_aes_265_cbc_iv <br>
+2.7.4 TC_dllSymmetryDecrypt_aes_256_cbc_in_ciphertext <br>
+2.7.5 TC_dllSymmetryDecrypt_aes_256_cbc_in_cipherlen_wrong <br>
+
+
 \textbf{3} & \textbf{“dllRSAPrivateDecrypt”接口函数单元测试用例} \\
 3.1 & TC\_dllRSAPrivateDecrypt\_normal \\
 3.2 & TC\_dllRSAPrivateDecrypt\_priKeyFile \\
