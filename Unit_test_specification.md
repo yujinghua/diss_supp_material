@@ -71,6 +71,30 @@
 * expected output: cipher text = “2c41845afcd4c369899868e4781fee9a”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
+### 1.4.2 TC_dllSymmetryEncrypt_aes_192_ecb_aKey
+**Purpose:** To check the function behaviors when various key values are input<br>
+**Test setup:** cipher name = “aes-192-ecb”; iv = “”; plain text = "Hello World!”; plain text length = 12; <br>
+**Sub test cases 1: Input key length < 24 bytes # padding the rest with 0x00**
+* input: key = "akey"
+* expected output: cipher text = “2c41845afcd4c369899868e4781fee9a”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 1: Input key length = 24 bytes**
+* input: key = "0123456789abcdef11223344"
+* expected output: cipher text = “ cd7760c08725a7af16e49ca9b4f7e322”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 1: Input key length > 24 bytes # cut the overflow part**
+* input: key = "0123456789abcdef112233445566778899"
+* expected output: cipher text = “ cd7760c08725a7af16e49ca9b4f7e322”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 1: Input key = null**
+* input: key = ""
+* expected output: cipher text = “ cd7760c08725a7af16e49ca9b4f7e322”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+
 ### 1.5.1 TC_dllSymmetryEncrypt_aes_192_cbc_normal
 **Purpose:** To check the function behaviors when using it normally <br>
 **Test setup:** cipher name = “aes-192-cbc”; iv = “iv”; plain text = "Hello World!”; plain text length = 12; <br>
