@@ -32,17 +32,17 @@
 * expected output: cipher text = “c1a9d48932d01b10913b29e6e43f3126”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key length = 16 bytes**
+**Sub test cases 2: Input key length = 16 bytes**
 * input: key = "0123456789abcdef"
 * expected output: cipher text = “ 73e56da23fc5187b64566ba6e3def67e”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key length > 16 bytes # cut the overflow part**
+**Sub test cases 3: Input key length > 16 bytes # cut the overflow part**
 * input: key = "0123456789abcdef112233445566778899"
 * expected output: cipher text = “ 73e56da23fc5187b64566ba6e3def67e”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key = null**
+**Sub test cases 4: Input key = null**
 * input: key = ""
 * expected output: cipher text = “ fc041974581f3bfede58b726b4f88941”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
@@ -63,17 +63,17 @@
 * expected output: cipher text = “aef47c964afeeff4e89b19f3cead8da0”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key length = 16 bytes**
+**Sub test cases 2: Input key length = 16 bytes**
 * input: key = "0123456789abcdef"
 * expected output: cipher text = “ fa5d630d9e7e1e46cff407ee7a3cd19f”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key length > 16 bytes # cut the overflow part**
+**Sub test cases 3: Input key length > 16 bytes # cut the overflow part**
 * input: key = "0123456789abcdef112233445566778899"
 * expected output: cipher text = “ fa5d630d9e7e1e46cff407ee7a3cd19f”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key = null**
+**Sub test cases 4: Input key = null**
 * input: key = ""
 * expected output: cipher text = “ 7a95e22960303400ba5c8ba8d8c07e46”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
@@ -95,17 +95,17 @@
 * expected output: cipher text = “2c41845afcd4c369899868e4781fee9a”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key length = 24 bytes**
+**Sub test cases 2: Input key length = 24 bytes**
 * input: key = "0123456789abcdef11223344"
 * expected output: cipher text = “ cd7760c08725a7af16e49ca9b4f7e322”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key length > 24 bytes # cut the overflow part**
+**Sub test cases 3: Input key length > 24 bytes # cut the overflow part**
 * input: key = "0123456789abcdef112233445566778899"
 * expected output: cipher text = “ cd7760c08725a7af16e49ca9b4f7e322”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key = null**
+**Sub test cases 4: Input key = null**
 * input: key = ""
 * expected output: cipher text = “ cd7760c08725a7af16e49ca9b4f7e322”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
@@ -118,6 +118,30 @@
 * input: key = "akey"
 * expected output: cipher text = “be3295ab58454b0e7d7b75da0d16f954”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
+
+### 1.5.2 TC_dllSymmetryEncrypt_aes_192_cbc_aKey
+**Purpose:** To check the function behaviors when various key values are input<br>
+**Test setup:** cipher name = “aes-192-cbc”; iv = “iv”; plain text = "Hello World!”; plain text length = 12; <br>
+**Sub test cases 1: Input key length < 24 bytes # padding the rest with 0x00**
+* input: key = "akey"
+* expected output: cipher text = “be3295ab58454b0e7d7b75da0d16f954”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 2: Input key length = 24 bytes**
+* input: key = "0123456789abcdef11223344"
+* expected output: cipher text = “ 237d3058ca49ff3c9206d5b12a3a7049”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 3: Input key length > 24 bytes # cut the overflow part**
+* input: key = "0123456789abcdef112233445566778899"
+* expected output: cipher text = “ 237d3058ca49ff3c9206d5b12a3a7049”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 4: Input key = null**
+* input: key = ""
+* expected output: cipher text = “ 9b89a72c0caef9baf8ca229ec0e847fd”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
 
 ### 1.6.1 TC_dllSymmetryEncrypt_aes_256_ecb_normal
 **Purpose:** To check the function behaviors when using it normally <br>
@@ -135,17 +159,17 @@
 * expected output: cipher text = “67b706d84807d187971d7890e91f8cca”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key length = 24 bytes**
+**Sub test cases 2: Input key length = 24 bytes**
 * input: key = "0123456789abcdef0123456789abcdef"
 * expected output: cipher text = “ 3ddb0416ef5b0131594001173529e4ac”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key length > 24 bytes # cut the overflow part**
+**Sub test cases 3: Input key length > 24 bytes # cut the overflow part**
 * input: key = "0123456789abcdef0123456789abcdef11223344"
 * expected output: cipher text = “ 3ddb0416ef5b0131594001173529e4ac”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key = null**
+**Sub test cases 4: Input key = null**
 * input: key = ""
 * expected output: cipher text = “ c10e6d561c7afaa57f3f44b2f79dbf14”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
@@ -158,6 +182,30 @@
 * input: key = "akey"
 * expected output: cipher text = “37e52c9833b6421935d7cade306ee629”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
+
+### 1.7.2 TC_dllSymmetryEncrypt_aes_256_cbc_aKey
+**Purpose:** To check the function behaviors when various key values are input<br>
+**Test setup:** cipher name = “aes-256-cbc”; iv = “iv”; plain text = "Hello World!”; plain text length = 12; <br>
+**Sub test cases 1: Input key length < 32 bytes # padding the rest with 0x00**
+* input: key = "akey"
+* expected output: cipher text = “37e52c9833b6421935d7cade306ee629”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 2: Input key length = 32 bytes**
+* input: key = "0123456789abcdef0123456789abcdef"
+* expected output: cipher text = “ 6df35ea65ca34ba37f65b0fb89b644ea”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 3: Input key length > 32 bytes # cut the overflow part**
+* input: key = "0123456789abcdef0123456789abcdef11223344"
+* expected output: cipher text = “ 6df35ea65ca34ba37f65b0fb89b644ea”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 4: Input key = null**
+* input: key = ""
+* expected output: cipher text = “ 23177e07b29e8fc7a8732daf6af8ef9e”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
 
 
 ## TG_dllSymmetryDecrypt
@@ -191,17 +239,17 @@
 * output: plain text = "Hello World!”; plain text length = 12;
 * return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key length = 16 bytes**
+**Sub test cases 2: Input key length = 16 bytes**
 * input: key = “0123456789abcdef”; cipher text = “ 73e56da23fc5187b64566ba6e3def67e”; cipher text length = 16;
 * output: plain text = "Hello World!”; plain text length = 12;
 * return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key length > 16 bytes # cut the overflow part**
+**Sub test cases 3: Input key length > 16 bytes # cut the overflow part**
 * input: key = “0123456789abcdef112233445566778899”; cipher text = “ 73e56da23fc5187b64566ba6e3def67e”; cipher text length = 16;
 * output: plain text = "Hello World!”; plain text length = 12;
 * return: 1 (operation succeeds)
 
-**Sub test cases 1: Input key = null**
+**Sub test cases 4: Input key = null**
 * input: key = “”; cipher text = “ fc041974581f3bfede58b726b4f88941”; cipher text length = 16;
 * output: plain text = "Hello World!”; plain text length = 12;
 * return: 1 (operation succeeds)
