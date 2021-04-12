@@ -24,14 +24,6 @@
 * expected output: cipher text = “ c1a9d48932d01b10913b29e6e43f3126”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
 
-### 1.2.1 TC_dllSymmetryEncrypt_aes_128_ecb_normal
-**Purpose:** To check the function behaviors when using it normally <br>
-**Test setup:** cipher name = “aes-128-ecb”; iv = “”; plain text = "Hello World!”; plain text length = 12; <br>
-**Sub test cases 1: Use the interface normally**
-* input: key = "akey"
-* expected output: cipher text = “c1a9d48932d01b10913b29e6e43f3126”; cipher text length = 16;
-* expected return: 1 (operation succeeds)
-
 ### 1.2.2 TC_dllSymmetryEncrypt_aes_128_ecb_aKey
 **Purpose:** To check the function behaviors when various key values are input<br>
 **Test setup:** cipher name = “aes-128-ecb”; iv = “”; plain text = "Hello World!”; plain text length = 12; <br>
@@ -62,6 +54,30 @@
 * input: key = "akey"
 * expected output: cipher text = “aef47c964afeeff4e89b19f3cead8da0”; cipher text length = 16;
 * expected return: 1 (operation succeeds)
+
+### 1.3.2 TC_dllSymmetryEncrypt_aes_128_cbc_aKey
+**Purpose:** To check the function behaviors when various key values are input<br>
+**Test setup:** cipher name = “aes-128-cbc”; iv = “iv”; plain text = "Hello World!”; plain text length = 12; <br>
+**Sub test cases 1: Input key length < 16 bytes # padding the rest with 0x00**
+* input: key = "akey"
+* expected output: cipher text = “aef47c964afeeff4e89b19f3cead8da0”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 1: Input key length = 16 bytes**
+* input: key = "0123456789abcdef"
+* expected output: cipher text = “ fa5d630d9e7e1e46cff407ee7a3cd19f”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 1: Input key length > 16 bytes # cut the overflow part**
+* input: key = "0123456789abcdef112233445566778899"
+* expected output: cipher text = “ fa5d630d9e7e1e46cff407ee7a3cd19f”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 1: Input key = null**
+* input: key = ""
+* expected output: cipher text = “ 7a95e22960303400ba5c8ba8d8c07e46”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
 
 ### 1.4.1 TC_dllSymmetryEncrypt_aes_192_ecb_normal
 **Purpose:** To check the function behaviors when using it normally <br>
