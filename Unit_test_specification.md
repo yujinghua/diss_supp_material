@@ -195,6 +195,28 @@
 * expected output: /
 * expected return: 101 (error code)
 
+### 1.3.5 TC_dllSymmetryEncrypt_aes_128_cbc_inlen_wrong
+**Purpose:** To check the function behaviors when input plaintext length is wrong <br>
+**Test setup:** cipher name = “aes-128-cbc”; key = "akey"; iv = “iv”; plain text = "Hello World!” <br>
+**Sub test cases 1: Input plaintext length is correct**
+* input: plain text length = 12
+* expected output: cipher text = “aef47c964afeeff4e89b19f3cead8da0”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 2: Input plaintext length is longer**
+* input: plain text length = 12 + 1
+* expected output: cipher text = “11b5becbc879697a6cafc92bc6ee6241”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 3: Input plaintext length is shorter**
+* input: plain text length = 12 - 1
+* expected output: cipher text = “50d56165a8a9c8a63368f127bfca389b”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 4: Input plaintext length = 0**
+* input: plain text length = 0
+* expected output: /
+* expected return: 101 (error code)
 
 ### 1.4.1 TC_dllSymmetryEncrypt_aes_192_ecb_normal
 **Purpose:** To check the function behaviors when using it normally <br>
@@ -370,6 +392,29 @@
 
 **Sub test cases 5: Input plaintext = null**
 * input: plain text = “”; ; plain text length = 0
+* expected output: /
+* expected return: 101 (error code)
+
+### 1.5.5 TC_dllSymmetryEncrypt_aes_192_cbc_inlen_wrong
+**Purpose:** To check the function behaviors when input plaintext length is wrong <br>
+**Test setup:** cipher name = “aes-192-cbc”; key = "akey"; iv = “iv”; plain text = "Hello World!” <br>
+**Sub test cases 1: Input plaintext length is correct**
+* input: plain text length = 12
+* expected output: cipher text = “be3295ab58454b0e7d7b75da0d16f954”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 2: Input plaintext length is longer**
+* input: plain text length = 12 + 1
+* expected output: cipher text = “60611fceea3540a2ba4e1bc38bd52b68”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 3: Input plaintext length is shorter**
+* input: plain text length = 12 - 1
+* expected output: cipher text = “83cfcfea358f619779726aba7b13d65f”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 4: Input plaintext length = 0**
+* input: plain text length = 0
 * expected output: /
 * expected return: 101 (error code)
 
@@ -549,6 +594,30 @@
 * input: plain text = “”; ; plain text length = 0
 * expected output: /
 * expected return: 101 (error code)
+
+### 1.7.5 TC_dllSymmetryEncrypt_aes_256_cbc_inlen_wrong
+**Purpose:** To check the function behaviors when input plaintext length is wrong <br>
+**Test setup:** cipher name = “aes-256-cbc”; key = "akey"; iv = “iv”; plain text = "Hello World!” <br>
+**Sub test cases 1: Input plaintext length is correct**
+* input: plain text length = 12
+* expected output: cipher text = “37e52c9833b6421935d7cade306ee629”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 2: Input plaintext length is longer**
+* input: plain text length = 12 + 1
+* expected output: cipher text = “9b1665fcf98c121774ba698757ee82fb”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 3: Input plaintext length is shorter**
+* input: plain text length = 12 - 1
+* expected output: cipher text = “3a62c89c5611d87055f99c09c90f58bc”; cipher text length = 16;
+* expected return: 1 (operation succeeds)
+
+**Sub test cases 4: Input plaintext length = 0**
+* input: plain text length = 0
+* expected output: /
+* expected return: 101 (error code)
+
 
 ## TG_dllSymmetryDecrypt
 
