@@ -1,4 +1,4 @@
-# Unit Test Specification of OpenSSL_CAPL_Sec.dll Functions - 1
+# Unit Test Specification of the Interface "dllSymmetryEncrypt"
 
 (Note: ciphertext is in HEX, plaintext is in ASCII)
 
