@@ -569,7 +569,7 @@
 
 ### 1.7.4 TC_dllSymmetryEncrypt_aes_256_cbc_in_plaintext
 **Purpose:** To check the function behaviors when various plaintexts are input<br>
-**Test setup:** cipher name = “aes-256-ecb”; key = "akey"; iv = “iv” <br>
+**Test setup:** cipher name = “aes-256-cbc”; key = "akey"; iv = “iv” <br>
 **Sub test cases 1: Input plaintext length < 15 bytes**
 * input: plain text = "Hello World!”;  plain text length = 12
 * expected output: cipher text = “37e52c9833b6421935d7cade306ee629”; cipher text length = 16;
