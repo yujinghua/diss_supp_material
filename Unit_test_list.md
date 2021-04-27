@@ -112,22 +112,18 @@
 ### 5.2 For “md5”
 5.2.1 TC_dllCalDigest_md5_normal <br>
 5.2.2 TC_dllCalDigest_md5_in_plaintext <br>
-5.2.3 TC_dllCalDigest_md5_in_plainlen_wrong <br>
 
 ### 5.3 For “sha1”
 5.3.1 TC_dllCalDigest_sha1_normal <br>
 5.3.2 TC_dllCalDigest_sha1_in_plaintext <br>
-5.3.3 TC_dllCalDigest_sha1_in_plainlen_wrong <br>
 
 ### 5.4 For “sha256”
 5.4.1 TC_dllCalDigest_sha256_normal <br>
 5.4.2 TC_dllCalDigest_sha256_in_plaintext <br>
-5.4.3 TC_dllCalDigest_sha256_in_plainlen_wrong <br>
 
 ### 5.5 For “sha512”
 5.5.1 TC_dllCalDigest_sha512_normal <br>
 5.5.2 TC_dllCalDigest_sha512_in_plaintext <br>
-5.5.3 TC_dllCalDigest_sha512_in_plainlen_wrong <br>
 
 ## 6 TG_dllCalHMAC
 ### 6.1 TC_dllCalHMAC_invalid_digest_name
@@ -135,23 +131,27 @@
 ### 6.2 For “md5”
 6.2.1 TC_dllCalHMAC_md5_normal <br>
 6.2.2 TC_dllCalHMAC_md5_akey <br>
-6.2.3 TC_dllCalHMAC_md5_in_plaintext <br>
-6.2.4 TC_dllCalHMAC_md5_in_plainlen_wrong <br>
+6.2.3 TC_dllCalHMAC_md5_akeylen <br>
+6.2.4 TC_dllCalHMAC_md5_in_plaintext <br>
+6.2.5 TC_dllCalHMAC_md5_in_plainlen_wrong <br>
 
 ### 6.3 For “sha1”
 6.3.1 TC_dllCalHMAC_sha1_normal <br>
 6.3.2 TC_dllCalHMAC_sha1_akey <br>
-6.3.3 TC_dllCalHMAC_sha1_in_plaintext <br>
-6.3.4 TC_dllCalHMAC_sha1_in_plainlen_wrong <br>
+6.3.3 TC_dllCalHMAC_sha1_akeylen <br>
+6.3.4 TC_dllCalHMAC_sha1_in_plaintext <br>
+6.3.5 TC_dllCalHMAC_sha1_in_plainlen_wrong <br>
 
 ### 6.4 For “sha256”
 6.4.1 TC_dllCalHMAC_sha256_normal <br>
 6.4.2 TC_dllCalHMAC_sha256_akey <br>
-6.4.3 TC_dllCalHMAC_sha256_in_plaintext <br>
-6.4.4 TC_dllCalHMAC_sha256_in_plainlen_wrong <br>
+6.4.3 TC_dllCalHMAC_sha256_akeylen <br> 
+6.4.4 TC_dllCalHMAC_sha256_in_plaintext <br>
+6.4.5 TC_dllCalHMAC_sha256_in_plainlen_wrong <br>
 
 ### 6.5 For “sha512”
 6.5.1 TC_dllCalHMAC_sha512_normal <br>
 6.5.2 TC_dllCalHMAC_sha512_akey <br>
-6.5.3 TC_dllCalHMAC_sha512_in_plaintext <br>
-6.5.4 TC_dllCalHMAC_sha512_in_plainlen_wrong <br>
+6.5.3 TC_dllCalHMAC_sha512_akeylen <br>
+6.5.4 TC_dllCalHMAC_sha512_in_plaintext <br>
+6.5.5 TC_dllCalHMAC_sha512_in_plainlen_wrong <br>
