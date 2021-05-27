@@ -1,4 +1,4 @@
-## Compare details of the automated and manual analysis result
+## Comparing details of the automated and manual analysis
 
 Detailed results are in AnalyzeUC1Compare.xlsm and AnalyzeUC2Compare.xlsm.
 
